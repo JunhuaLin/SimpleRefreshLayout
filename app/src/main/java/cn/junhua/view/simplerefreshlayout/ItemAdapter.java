@@ -15,12 +15,18 @@ import java.util.List;
  */
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>
 {
+	private View.OnClickListener mOnClickListener;
 
 	private List<String> mData = new ArrayList<>();
 
 	public void setData(List<String> data)
 	{
 		mData = data;
+	}
+
+	public void setOnClickListener(View.OnClickListener onClickListener)
+	{
+		mOnClickListener = onClickListener;
 	}
 
 	@NonNull
@@ -58,6 +64,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 		public void bind(int position)
 		{
 			tv_hint.setText("ItemView:" + position);
+			itemView.setOnClickListener(mOnClickListener);
 		}
 	}
 }
