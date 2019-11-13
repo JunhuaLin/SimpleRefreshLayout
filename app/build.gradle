@@ -24,4 +24,6 @@ dependencies {
 
     implementation rootProject.ext.dependencies["SUPPORT_V7"]
     implementation rootProject.ext.dependencies["RECYCLERVIEW"]
+    implementation rootProject.ext.dependencies["SUPPORT_DESIGN"]
+    implementation project(path: ':refresh-layout')
 }
