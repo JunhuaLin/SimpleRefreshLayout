@@ -1,0 +1,58 @@
+/**
+ * 配置Gradle依赖相关信息
+ *
+ * 依赖库库版本&依赖库信息
+ * 项目里面统一维护，不直接在模块添加依赖库，防止版本冲突
+ */
+ext {
+    android = [
+            applicationId    : "cn.junhua.view.simplerefreshlayout",
+            compileSdkVersion: 28,
+            buildToolsVersion: "27.0.3",
+            minSdkVersion    : 17,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0.0"
+    ]
+
+    versions = [
+            supportLibVersion  : "27.1.1",
+            lifecycleVersion   : "1.1.1",
+            kotlin_version     : "1.3.50",   // 如果 gradle plugin 版本在 3.0.0 以上，则 kotlin 可以用最新版了，否则只能到 1.3.20
+            rxjava_version     : "2.2.2",
+            rxandroid_version  : "2.1.0",
+            junit_version      : "4.12",
+            powermock_version  : "1.6.5",
+            android_all_version: "8.1.0-robolectric-4611349"
+    ]
+
+    dependencies = [
+            // component 库
+
+            // kotlin stdlib & reflect
+            KOTLIN_STDLIB : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version",
+            KOTLIN_REFLECT: "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin_version",
+
+
+            // Gson json数据序列化&反序列化
+            GSON          : 'com.google.code.gson:gson:2.8.2',
+
+            // design
+            SUPPORT_DESIGN: "com.android.support:design:$versions.supportLibVersion",
+
+            // support 库
+            CONSTRAINT    : 'com.android.support.constraint:constraint-layout:1.1.3',
+            SUPPORT_V4    : "com.android.support:support-v4:$versions.supportLibVersion",
+            SUPPORT_V7    : "com.android.support:appcompat-v7:$versions.supportLibVersion",
+            RECYCLERVIEW  : "com.android.support:recyclerview-v7:$versions.supportLibVersion",
+            CARDVIEW      : "com.android.support:cardview-v7:$versions.supportLibVersion",
+            GRIDLAYOUT    : "com.android.support:gridlayout-v7:$versions.supportLibVersion",
+
+            // flexbox 组件
+            FLEXBOX       : 'com.google.android:flexbox:1.0.0@aar',
+
+            // Rxjava & RxAndroid
+            RXJAVA        : "io.reactivex.rxjava2:rxjava:$versions.rxjava_version",
+            RXANDROID     : "io.reactivex.rxjava2:rxandroid:$versions.rxandroid_version",
+    ]
+}
