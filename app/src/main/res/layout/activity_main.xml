@@ -4,8 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_content"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_fixed_text"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#c0a10f0c"
+            android:gravity="center"
+            android:text="fixed text" />
+
+    </FrameLayout>
+
+
 </cn.junhua.view.refresh.layout.SmartRefreshLayout>

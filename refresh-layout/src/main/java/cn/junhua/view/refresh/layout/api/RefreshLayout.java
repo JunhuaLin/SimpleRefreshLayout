@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 
 import cn.junhua.view.refresh.layout.constant.RefreshState;
+import cn.junhua.view.refresh.layout.impl.ScrollBoundaryDeciderAdapter;
 import cn.junhua.view.refresh.layout.listener.OnLoadMoreListener;
 import cn.junhua.view.refresh.layout.listener.OnMultiPurposeListener;
 import cn.junhua.view.refresh.layout.listener.OnRefreshListener;
 import cn.junhua.view.refresh.layout.listener.OnRefreshLoadMoreListener;
+import cn.junhua.view.refresh.layout.listener.SimpleMultiPurposeListener;
 
 /**
  * 刷新布局
@@ -430,9 +432,9 @@ public interface RefreshLayout
 
 	/**
 	 * Set up a multi-function listener.
-	 * Recommended {@link com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener}
+	 * Recommended {@link SimpleMultiPurposeListener}
 	 * 设置多功能监听器
-	 * 建议使用 {@link com.scwang.smartrefresh.layout.listener.SimpleMultiPurposeListener}
+	 * 建议使用 {@link SimpleMultiPurposeListener}
 	 *
 	 * @param listener OnMultiPurposeListener 多功能监听器
 	 * @return RefreshLayout
@@ -441,9 +443,9 @@ public interface RefreshLayout
 
 	/**
 	 * Set the scroll boundary Decider, Can customize when you can refresh.
-	 * Recommended {@link com.scwang.smartrefresh.layout.impl.ScrollBoundaryDeciderAdapter}
+	 * Recommended {@link ScrollBoundaryDeciderAdapter}
 	 * 设置滚动边界判断器
-	 * 建议使用 {@link com.scwang.smartrefresh.layout.impl.ScrollBoundaryDeciderAdapter}
+	 * 建议使用 {@link ScrollBoundaryDeciderAdapter}
 	 *
 	 * @param boundary ScrollBoundaryDecider 判断器
 	 * @return RefreshLayout
@@ -707,23 +709,22 @@ public interface RefreshLayout
 	boolean autoLoadMore(int delayed, int duration, float dragRate, boolean animationOnly);
 
 
-//    /**
-//     * 是否正在刷新
-//     * @deprecated 后续版本将会移除
-//     *      使用 {@link #getState()} == {@link RefreshState#Refreshing} 代替
-//     * @return RefreshLayout
-//     */
+	/**
+	 * 是否正在刷新<br/>
+	 * 功能同使用 {@link #getState()} == {@link RefreshState#Refreshing}
+	 *
+	 * @return 是否正在刷新
+	 */
 //    @Deprecated
-//    boolean isRefreshing();
-//
-//    /**
-//     * 是否正在加载
-//     * @deprecated 后续版本将会移除
-//     *      使用 {@link #getState()} == {@link RefreshState#Loading} 代替
-//     * @return RefreshLayout
-//     */
+	boolean isRefreshing();
+
+	/**
+	 * 是否正在加载<br/>
+	 *      功能同使用 {@link #getState()} == {@link RefreshState#Loading}
+	 * @return 是否正在加载更多
+	 */
 //    @Deprecated
-//    boolean isLoading();
+	boolean isLoading();
 //
 //    /**
 //     * 恢复没有更多数据的原始状态

@@ -30,7 +30,6 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
-import android.view.animation.OvershootInterpolator;
 import android.widget.AbsListView;
 import android.widget.Scroller;
 import android.widget.TextView;
@@ -3990,23 +3989,28 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
 	}
 
 	//<editor-fold desc="丢弃的API">
-//    /**
-//     * 是否正在刷新
-//     * @return 是否正在刷新
-//     */
-//    @Override
-//    public boolean isRefreshing() {
-//        return mState == RefreshState.Refreshing;
-//    }
-//
-//    /**
-//     * 是否正在加载
-//     * @return 是否正在加载
-//     */
-//    @Override
-//    public boolean isLoading() {
-//        return mState == RefreshState.Loading;
-//    }
+
+	/**
+	 * 是否正在刷新
+	 *
+	 * @return 是否正在刷新
+	 */
+	@Override
+	public boolean isRefreshing()
+	{
+		return mState == RefreshState.Refreshing;
+	}
+
+	/**
+	 * 是否正在加载
+	 *
+	 * @return 是否正在加载
+	 */
+	@Override
+	public boolean isLoading()
+	{
+		return mState == RefreshState.Loading;
+	}
 //    /**
 //     * 恢复没有更多数据的原始状态
 //     * @deprecated 使用 {@link RefreshLayout#setNoMoreData(boolean)} 代替
@@ -4017,7 +4021,6 @@ public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, Nest
 //    public RefreshLayout resetNoMoreData() {
 //        return setNoMoreData(false);
 //    }
-	//</editor-fold>
 	//</editor-fold>
 
 	//<editor-fold desc="核心接口 RefreshKernel">
