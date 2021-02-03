@@ -20,10 +20,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-
-    implementation rootProject.ext.dependencies["SUPPORT_V7"]
-    implementation rootProject.ext.dependencies["RECYCLERVIEW"]
-    implementation rootProject.ext.dependencies["SUPPORT_DESIGN"]
+    testImplementation 'junit:junit:4.13.1'
     implementation project(path: ':refresh-layout')
 }

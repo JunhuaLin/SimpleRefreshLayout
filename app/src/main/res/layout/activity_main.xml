@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<cn.junhua.view.refresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/srl_layout"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <FrameLayout
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_fixed_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="60dp"
+        android:background="#c0a10f0c"
+        android:gravity="center"
+        android:text="fixed text" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TextView
-            android:id="@+id/tv_fixed_text"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#c0a10f0c"
-            android:gravity="center"
-            android:text="fixed text" />
-
-    </FrameLayout>
-
-
-</cn.junhua.view.refresh.layout.SmartRefreshLayout>
+</FrameLayout>
