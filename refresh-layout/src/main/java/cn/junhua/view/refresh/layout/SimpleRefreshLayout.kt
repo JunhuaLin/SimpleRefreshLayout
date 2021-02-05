@@ -1,4 +1,4 @@
-package cn.futu.nnframework.view.helper
+package cn.junhua.view.refresh.layout
 
 /**
  * 简洁易用的刷新控件
