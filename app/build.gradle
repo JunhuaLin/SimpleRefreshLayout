@@ -1,15 +1,24 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+def androidConfig = rootProject.ext.android
+def dependenciesConfig = rootProject.ext.dependencies
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion androidConfig.compileSdkVersion
+    buildToolsVersion androidConfig.buildToolsVersion
+
     defaultConfig {
-        applicationId rootProject.ext.android.applicationId
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
+        applicationId androidConfig.applicationId
+        minSdkVersion androidConfig.minSdkVersion
+        targetSdkVersion androidConfig.targetSdkVersion
+        versionCode androidConfig.versionCode
+        versionName androidConfig.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,6 +29,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.13.1'
     implementation project(path: ':refresh-layout')
+
+    implementation dependenciesConfig.KOTLIN_STDLIB
+    implementation dependenciesConfig.CORE_KTX
+    implementation dependenciesConfig.APPCOMPAT
+    implementation dependenciesConfig.MATERIAL
+    implementation dependenciesConfig.CONSTRAINT_LAYOUT
+
+    testImplementation dependenciesConfig.JAVA_JUNIT
+    androidTestImplementation dependenciesConfig.ANDROIDX_JUNIT
+    androidTestImplementation dependenciesConfig.ESPRESSO_CORE
 }
